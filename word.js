@@ -15,10 +15,11 @@ function Word(wordArray) {
         for (var i = 0; i < this.newLet.length; i++) {
             hiddenWord.push(this.newLet[i].returning());
         }
+        return hiddenWord.join(" ");
     }
-    this.checkLet = function(inputGuess) {
+    this.checkLet = function(myInput) {
         for (var i = 0; i < this.newLet.length; i ++) {
-            this.newLet[i].checkLet(inputGuess);
+            this.newLet[i].check(myInput);
         }
     }
 }
