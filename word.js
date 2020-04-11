@@ -1,21 +1,26 @@
-function Letter(letters) {
-    this.letters = letters;
-    this.guessed = false;
-    this.returning = function() {
-        if(this.letters === " ") {
-            return " ";
-        }
-        else if(!this.guessed) {
-            return "_";
-        }
-        else {
-            return this.letters;
+//Requiring exported file/function from letter.js
+var Letter = require("./letter.js");
+//Constructor representing current word user is trying to guess.
+function Word(wordArray) {
+    this.wordArray = wordArray;
+    this.newLet = [];
+    this.hiddenLetter = function() {
+        for (var i = 0; i < wordArray.length; i++) {
+            var alphaLetter = new Letter(wordArray[i]);
+            this.newLet.push(alphaLetter);
         }
     }
-    this.check = function(input) {
-        if(input === this.letter) {
-            this.guessed = true;
+    this.letterForWord = function() {
+        var hiddenWord = [];
+        for (var i = 0; i < this.newLet.length; i++) {
+            hiddenWord.push(this.newLet[i].returning());
+        }
+    }
+    this.checkLet = function(inputGuess) {
+        for (var i = 0; i < this.newLet.length; i ++) {
+            this.newLet[i].checkLet(inputGuess);
         }
     }
 }
-module.exports = Letter;
+//Export word.js to other files to require
+module.exports = Word;
