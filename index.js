@@ -36,16 +36,18 @@ function startGame() {
     
     random = Math.floor(Math.random() * wordList.length);
     randomWord = wordList[random];
-    console.log("=============================================")
+    // console.log("=============================================")
 
-    console.log(randomWord);
+    // console.log(randomWord);
     chosenWord = new Word(randomWord);
     chosenWord.hiddenLetter();
     if (random > -1) {
         wordList.splice(random, 1);
     }
-    console.log("=============================================")
+    console.log("=============================================");
     console.log("You have 10 Guesses to find the correct Hero!");
+    console.log("=============================================");
+
     promptUser();
 };
 function promptUser(){
@@ -76,7 +78,7 @@ function checkInput(results) {
     if ((results.letter.length === 1) && /^[a-zA-Z]+$/.test(results.letter)) {
         // console.log(results.letter.length);
         var checking = results.letter;
-        console.log(checking);
+        // console.log("Checking this value " + checking);
         var shownWord = chosenWord.letterForWord();
         // console.log(shownWord);
         chosenWord.checkLet(checking);
@@ -96,6 +98,8 @@ function checkInput(results) {
 };
 function correctCheck() {
     console.log("Correct Guess!");
+    // console.log("This is the chosen word " + chosenWord.letterForWord());
+    // console.log("This is the random word " + randomWord);
     if (randomWord.replace(/ /g,"") == (chosenWord.letterForWord()).replace(/ /g,"")) {
         console.log(chosenWord.letterForWord());
         console.log("You Win!");
@@ -103,7 +107,7 @@ function correctCheck() {
         chosenWord = "";
         random = 0;
         guessLeft = 0;
-        startGame();
+        // startGame();
     }
     else {
         promptUser();

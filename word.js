@@ -18,8 +18,12 @@ function Word(wordArray) {
         return hiddenWord.join(" ");
     }
     this.checkLet = function(results) {
+        // console.log("value passed is " + results);
+        
+        // console.log("THIs this " + this.newLet[0].guessed);
         for (var i = 0; i < this.newLet.length; i++) {
             this.newLet[i].check(results);
+            // console.log("THIs this " + this.newLet[i].guessed);
         }
     }
 }

@@ -14,8 +14,13 @@ function Letter(letters) {
         }
     }
     this.check = function(results) {
-        if(results === this.letter) {
+        // console.log("This.letter is " + results);
+        // console.log("This is the .letter " + this.letters);
+        // this.guessed = true;
+        if(results.toLowerCase() === this.letters.toLowerCase()) {
+            
             this.guessed = true;
+            // console.log("correctly Guessed");
         }
     }
 }
