@@ -33,18 +33,18 @@ function beginning() {
     ])
 };
 function startGame() {
-    // if (wordList.length < 2) {
-    //     wordList = ["Black Panther", "Spider Man", "Thor", "Iron Man", "Captain America", "Hulk", "Hawkeye", "Captain Marvel", "Black Widow", "Ant Man", "Wolverine", "Doctor Strange", "Ghost rider", "Blade", "Daredevil", "Punisher"];
-
-    // }
-    var random = Math.floor(Math.random() * wordList.length);
+    
+    random = Math.floor(Math.random() * wordList.length);
     randomWord = wordList[random];
-    // console.log(randomWord);
+    console.log("=============================================")
+
+    console.log(randomWord);
     chosenWord = new Word(randomWord);
     chosenWord.hiddenLetter();
     if (random > -1) {
         wordList.splice(random, 1);
     }
+    console.log("=============================================")
     console.log("You have 10 Guesses to find the correct Hero!");
     promptUser();
 };
@@ -57,8 +57,9 @@ function promptUser(){
                 name: "letter",
                 message: "Pick a letter and press enter."
             }
-        ]).then(function(input) {
-            checkInput(input);
+        ]).then(function(results) {
+            // console.log(results);
+            checkInput(results);
         });
     }
     else {
@@ -66,16 +67,22 @@ function promptUser(){
         console.log(randomWord);
         randomWord = "";
         chosenWord = "";
-        counter = 0;
+        random = 0;
+        guessLeft = 0;
         startGame();
     }
 }
-function checkInput(data) {
-    if ((data.letter.length === 1) && /^[a-zA-Z]+$/.test(data.letter)) {
-        var checking = data.letter.toUpperCase();
-        var hiddenWord = chosenWord.letterForWord();
+function checkInput(results) {
+    if ((results.letter.length === 1) && /^[a-zA-Z]+$/.test(results.letter)) {
+        // console.log(results.letter.length);
+        var checking = results.letter;
+        console.log(checking);
+        var shownWord = chosenWord.letterForWord();
+        // console.log(shownWord);
         chosenWord.checkLet(checking);
-        if (hiddenWord === chosenWord.letterForWord()) {
+        // var checkingWord = chosenWord.checkLet(checking);
+        // console.log(checkingWord);
+        if (shownWord === chosenWord.letterForWord()) {
             console.log("Wrong Letter, try again");
             guessLeft++;
             console.log((10 - guessLeft) + " Guesses Remaining");
@@ -90,13 +97,16 @@ function checkInput(data) {
 function correctCheck() {
     console.log("Correct Guess!");
     if (randomWord.replace(/ /g,"") == (chosenWord.letterForWord()).replace(/ /g,"")) {
-        console.log(chosenWord.letterForWord);
+        console.log(chosenWord.letterForWord());
         console.log("You Win!");
         randomWord = "";
         chosenWord = "";
         random = 0;
         guessLeft = 0;
         startGame();
+    }
+    else {
+        promptUser();
     }
 }
 // beginning();

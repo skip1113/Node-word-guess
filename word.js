@@ -17,11 +17,12 @@ function Word(wordArray) {
         }
         return hiddenWord.join(" ");
     }
-    this.checkLet = function(myInput) {
-        for (var i = 0; i < this.newLet.length; i ++) {
-            this.newLet[i].check(myInput);
+    this.checkLet = function(results) {
+        for (var i = 0; i < this.newLet.length; i++) {
+            this.newLet[i].check(results);
         }
     }
 }
+
 //Export word.js to other files to require
 module.exports = Word;

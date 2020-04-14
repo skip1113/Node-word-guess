@@ -13,8 +13,8 @@ function Letter(letters) {
             return this.letters;
         }
     }
-    this.check = function(input) {
-        if(input === this.letter) {
+    this.check = function(results) {
+        if(results === this.letter) {
             this.guessed = true;
         }
     }
