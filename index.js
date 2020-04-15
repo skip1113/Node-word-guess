@@ -70,7 +70,7 @@ function promptUser(){
         });
     }
     else {
-        console.log("You're out of guesses! Better luck next time.");
+        console.log("You're out of guesses! Better luck next time.\n");
         console.log(randomWord);
         randomWord = "";
         chosenWord = "";
