@@ -19,5 +19,8 @@
   "dependencies": {
     "chalk": "^4.0.0",
     "inquirer": "^7.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.5.0"
   }
 }
