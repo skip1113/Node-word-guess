@@ -48,7 +48,7 @@ function checkInput(results) {
         // console.log(checkingWord);
         if (shownWord === chosenWord.letterForWord()) {
             console.log(chalk.redBright('Wrong Letter, try again'));
-            guessLeft++;
+            guessLeft += 1;
             console.log((10 - guessLeft) + chalk.magenta(' Guesses Remaining'));
             promptUser();
         } else {
