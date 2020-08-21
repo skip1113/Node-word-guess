@@ -3,6 +3,7 @@
 # Link to deployed app: https://github.com/skip1113/Node-word-guess
 
 ## Overview
+This Node application is operated in the users Git Terminal. The user will be prompted powered by Inquirer, and Chalk. Follow the prompts to play, the user must guess the correct Marvel Superhero letter by letter. I wanted to be able to implement Inquirer to prompt and also update the hidden word when a letter was guessed, a win or loss, show the answer when there is a win. This game has many functions, for example randomly choosing a hidden word, hiding the letters in the string as underlines, and updating after validating the input the user enters.
 
 ### Command lines:
 * node index.js
